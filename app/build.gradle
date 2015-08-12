@@ -1,0 +1,86 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+
+    }
+}
+
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.jakewharton.hugo'
+
+retrolambda {
+    jdk System.getenv("JAVA8_HOME")
+    oldJdk System.getenv("JAVA7_HOME")
+    javaVersion JavaVersion.VERSION_1_7
+}
+
+repositories {
+    maven {url "https://clojars.org/repo/"}
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "me.pkliang.gankmaku"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile project(':domain')
+    compile project(':data')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.supportAppcompat
+    compile  rootProject.ext.supportV4
+    compile rootProject.ext.recyclerView
+    compile rootProject.ext.palette
+    compile 'com.android.support:percent:22.2.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    apt rootProject.ext.icepickProcessor
+    apt rootProject.ext.fragmentArgsProcessor
+    compile rootProject.ext.mosbyMVP
+    compile rootProject.ext.mosbyRx
+    compile rootProject.ext.mosbyViewState
+    compile rootProject.ext.supportAnnotations
+
+    compile 'com.lsjwzh:recyclerviewpager:1.0.7-SNAPSHOT'
+
+    apt 'com.google.dagger:dagger-compiler:2.0.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.google.dagger:dagger:2.0.1'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.3.0'
+    compile 'jp.wasabeef:glide-transformations:1.0.8'
+    compile 'com.github.florent37:glidepalette:1.0.2@aar'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.2.3'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.github.ctiao:dfm:0.3.4'
+}
