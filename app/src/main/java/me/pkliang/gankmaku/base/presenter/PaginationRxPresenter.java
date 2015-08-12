@@ -19,14 +19,12 @@ public abstract class PaginationRxPresenter<V extends PaginationView<M>, M > ext
     public PaginationRxPresenter() {
     }
 
-    //@DebugLog
     @Override
     protected void onError(Throwable e, boolean pullToRefresh) {
         super.onError(e, pullToRefresh);
         isLoadingMore = false;
     }
 
-    //@DebugLog
     @Override
     protected void onCompleted() {
         super.onCompleted();
@@ -34,8 +32,6 @@ public abstract class PaginationRxPresenter<V extends PaginationView<M>, M > ext
         isLoadingMore = false;
     }
 
-
-    //@DebugLog
     @Override
     protected void onNext(M data) {
         hasMoreData = hasMore(data);

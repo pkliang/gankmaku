@@ -5,4 +5,7 @@
     <string name="android">安卓</string>
     <string name="fuli">戳这里看妹子</string>
     <string name="no_data">没有数据</string>
+    <string name="editor">编辑</string>
+    <string name="ios">iOS</string>
+    <string name="title_activity_navigation">导航</string>
 </resources>

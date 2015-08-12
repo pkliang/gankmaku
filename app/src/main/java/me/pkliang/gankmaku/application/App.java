@@ -22,6 +22,7 @@ public class App extends Application {
         Hawk.init(this)
             .setStorage(HawkBuilder.newSqliteStorage(this))
             .setLogLevel(LogLevel.FULL)
+            .setEncryptionMethod(HawkBuilder.EncryptionMethod.NO_ENCRYPTION)
             .build();
     }
 

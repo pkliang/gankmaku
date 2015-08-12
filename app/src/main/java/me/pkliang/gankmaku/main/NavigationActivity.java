@@ -9,9 +9,9 @@ import android.view.MenuItem;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.pkliang.gankmaku.R;
-import me.pkliang.gankmaku.android.AndroidFragment;
-import me.pkliang.gankmaku.android.IOSFragment;
 import me.pkliang.gankmaku.fuli.FuliFragment;
+import me.pkliang.gankmaku.ganhuo.AndroidFragment;
+import me.pkliang.gankmaku.ganhuo.IOSFragment;
 
 public class NavigationActivity extends AppCompatActivity {
 

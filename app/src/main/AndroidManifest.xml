@@ -15,16 +15,16 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name" >
-
-        </activity>
-        <activity
-            android:name=".main.NavigationActivity"
-            android:label="@string/title_activity_navigation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.NavigationActivity"
+            android:label="@string/title_activity_navigation" >
+
         </activity>
 
         <meta-data

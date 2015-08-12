@@ -21,7 +21,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import hugo.weaving.DebugLog;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import me.pkliang.gankmaku.R;
 import me.pkliang.gankmaku.base.BaseAdapter;
@@ -34,14 +33,14 @@ import me.pkliang.gankmaku.domain.entity.Response;
 public class FuliAdapter extends BaseAdapter<FuliAdapter.ViewHolder> implements ListPreloader.PreloadModelProvider<Entry> {
     private final Context mContext;
     private final BitmapPool mPool;
-    private PaletteCallback paletteCallback;
-    private final ViewPreloadSizeProvider<Entry> preloadSizeProvider;
+    private PaletteCallback mPaletteCallback;
+    private final ViewPreloadSizeProvider<Entry> mPreloadSizeProvider;
 
     protected FuliAdapter(Response mResponse, Context context, ViewPreloadSizeProvider<Entry> preloadSizeProvider) {
         super(mResponse);
         mContext = context;
-        this.preloadSizeProvider = preloadSizeProvider;
-        mPool = Glide.get(mContext).getBitmapPool();
+        mPreloadSizeProvider = preloadSizeProvider;
+        mPool = Glide.get(context).getBitmapPool();
     }
 
     @Override
@@ -49,7 +48,7 @@ public class FuliAdapter extends BaseAdapter<FuliAdapter.ViewHolder> implements 
         View v = LayoutInflater.from(parent.getContext())
                                .inflate(R.layout.item_fuli, parent, false);
         ViewHolder vh = new ViewHolder(v);
-        preloadSizeProvider.setView(vh.meiZi);
+        mPreloadSizeProvider.setView(vh.meiZi);
         return vh;
     }
 
@@ -62,8 +61,8 @@ public class FuliAdapter extends BaseAdapter<FuliAdapter.ViewHolder> implements 
                 .listener(
                         GlidePalette.with(mResponse.getResults().get(i).getUrl()).intoCallBack(
                                 palette -> {
-                                    if (paletteCallback != null)
-                                        paletteCallback.onPaletteReady(i, palette);
+                                    if (mPaletteCallback != null)
+                                        mPaletteCallback.onPaletteReady(i, palette);
                                 }
                         )
                 )
@@ -72,7 +71,7 @@ public class FuliAdapter extends BaseAdapter<FuliAdapter.ViewHolder> implements 
     }
 
     public void setPaletteCallback(PaletteCallback paletteCallback) {
-        this.paletteCallback = paletteCallback;
+        mPaletteCallback = paletteCallback;
     }
 
     @Override

@@ -23,28 +23,25 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public Observable<Response> getFuli(int pageSize, int page) {
-        return restApi
-                .getGank(RestApi.TYPE_FULI, pageSize, page)
-                .flatMap(response -> Hawk.putObservable(RestApi.TYPE_FULI + page, response))
-                .flatMap(success -> Hawk.<Response>getObservable(RestApi.TYPE_FULI + page))
-                .onErrorResumeNext(error -> Hawk.<Response>getObservable(RestApi.TYPE_FULI + page));
+        return getResponse(RestApi.TYPE_FULI, pageSize, page);
     }
 
     @Override
     public Observable<Response> getAndroid(int pageSize, int page) {
-        return restApi
-                .getGank(RestApi.TYPE_ANDROID, pageSize, page)
-                .flatMap(response -> Hawk.putObservable(RestApi.TYPE_ANDROID + page, response))
-                .flatMap(success -> Hawk.<Response>getObservable(RestApi.TYPE_ANDROID + page))
-                .onErrorResumeNext(error -> Hawk.<Response>getObservable(RestApi.TYPE_ANDROID + page));
+        return getResponse(RestApi.TYPE_ANDROID, pageSize, page);
     }
 
     @Override
     public Observable<Response> getIOS(int pageSize, int page) {
+        return getResponse(RestApi.TYPE_IOS, pageSize, page);
+    }
+
+    private Observable<Response> getResponse(String type, int pageSize, int page) {
         return restApi
-                .getGank(RestApi.TYPE_IOS, pageSize, page)
-                .flatMap(response -> Hawk.putObservable(RestApi.TYPE_IOS + page, response))
-                .flatMap(success -> Hawk.<Response>getObservable(RestApi.TYPE_IOS + page))
-                .onErrorResumeNext(error -> Hawk.<Response>getObservable(RestApi.TYPE_IOS + page));
+                .getGank(type, pageSize, page)
+                .flatMap(response -> Hawk.putObservable(type + page, response))
+                .flatMap(success -> Hawk.<Response>getObservable(type + page))
+                .onErrorResumeNext(error -> Hawk.<Response>getObservable(type + page))
+                .filter(response1 -> response1 != null);
     }
 }

@@ -6,7 +6,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -41,9 +40,10 @@ public class FuliFragment extends BaseDanmakuFragment<SwipeRefreshLayout, Respon
     private FuliAdapter adapter;
     private Map<Integer, Palette> paletteMap;
     private SystemBarTintManager tintManager;
+    private BaseDanmakuParser mParser;
+
     @Bind(R.id.rootView) FrameLayout rootView;
     @Bind(R.id.sv_danmaku) DanmakuSurfaceView mDanmakuView;
-    private BaseDanmakuParser mParser;
 
     private static final int PRELOAD_AHEAD_ITEMS = 5;
 
@@ -179,7 +179,7 @@ public class FuliFragment extends BaseDanmakuFragment<SwipeRefreshLayout, Respon
 
     @Override
     public void OnPageChanged(int oldPosition, int newPosition) {
-        Log.d("FuliFragment", "addOnPageChangedListener " + newPosition);
+        //Log.d("FuliFragment", "addOnPageChangedListener " + newPosition);
         Palette palette = paletteMap.get(newPosition);
         if (palette != null) {
             int color = palette.getVibrantColor(0x000000);
@@ -189,7 +189,6 @@ public class FuliFragment extends BaseDanmakuFragment<SwipeRefreshLayout, Respon
 
             mDanmakuView.clearDanmakusOnScreen();
             Entry entry = getIDataAdapter().getData().getResults().get(newPosition);
-            //testDanMu(mDanmakuView, mParser, entry.getDesc(), palette.getLightVibrantColor(0x000000), Color.TRANSPARENT);
             testDanMu(mDanmakuView, mParser, "by "+ entry.getWho(), palette.getVibrantColor(0x000000), Color.TRANSPARENT);
         }
     }

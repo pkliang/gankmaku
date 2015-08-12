@@ -19,7 +19,7 @@ public class FuliPresenter extends PaginationRxPresenter<FuliView, Response> {
 
     @Override
     protected boolean hasMore(Response data) {
-        return data.getResults().size() >= mLimit;
+        return data != null && data.getResults().size() >= mLimit;
     }
 
     @Override
