@@ -6,8 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.pkliang.data.RepositoryImpl;
-import me.pkliang.data.net.RestApi;
+import me.pkliang.gankmaku.data.RepositoryImpl;
+import me.pkliang.gankmaku.data.net.RestApi;
 import me.pkliang.gankmaku.domain.Repository;
 import retrofit.RestAdapter;
 
