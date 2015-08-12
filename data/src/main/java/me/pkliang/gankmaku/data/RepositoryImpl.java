@@ -1,10 +1,10 @@
-package me.pkliang.data;
+package me.pkliang.gankmaku.data;
 
 import com.orhanobut.hawk.Hawk;
 
 import javax.inject.Inject;
 
-import me.pkliang.data.net.RestApi;
+import me.pkliang.gankmaku.data.net.RestApi;
 import me.pkliang.gankmaku.domain.Repository;
 import me.pkliang.gankmaku.domain.entity.Response;
 import rx.Observable;

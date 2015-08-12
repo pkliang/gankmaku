@@ -1,4 +1,4 @@
-package me.pkliang.data.net;
+package me.pkliang.gankmaku.data.net;
 
 import com.squareup.okhttp.OkHttpClient;
 

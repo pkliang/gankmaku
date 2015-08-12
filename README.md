@@ -33,8 +33,6 @@ Developed by
 ---
 Liang Song - <pkliang@gmail.com>
 
-* [LinkedIn](https://fi.linkedin.com/pub/liang-song/31/1a1/a23)
-
 License
 ----
 ```
