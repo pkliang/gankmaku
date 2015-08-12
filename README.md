@@ -1,7 +1,7 @@
 Gankmaku
 =========
  
- Project created for learing how to apply the **Android-CleanArchitecture** with [Reactive Programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) and Android good practices to develop a **MVP (Model View Presenter)** application using [gank.io](http://gank.io/) RESTful API as the domain of the application.
+ Project created for learning how to apply the **Android-CleanArchitecture** with [Reactive Programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) and Android good practices to develop a **MVP (Model View Presenter)** application using [gank.io/api](http://gank.io/api) as the domain of the application.
  
 Motivation
 ----
@@ -15,15 +15,15 @@ I decided to make my own implenentation using these two projects as reference.
 Some Libraries used in this project
 ----
 
-- [Dagger2](https://github.com/google/dagger)
+- [Dagger 2](https://github.com/google/dagger)
 - [Retrofit](http://square.github.io/retrofit)
-- [ButterKnife](http://jakewharton.github.io/butterknife)
+- [ButterKnife](https://github.com/JakeWharton/butterknife)
 - [Rxjava](https://github.com/ReactiveX/RxJava)
-- [Gradle Retrolambda Plugin](https://github.com/evant/gradle-retrolambda)
 - [Glide](https://github.com/bumptech/glide)
+- [Gradle Retrolambda Plugin](https://github.com/evant/gradle-retrolambda)
 - [RecyclerViewPager](https://github.com/lsjwzh/RecyclerViewPager)
 
-Screenshots
+Screenshot
 ----
 ![screenshot](./art/gankmaku.gif "Screenshot")
 
