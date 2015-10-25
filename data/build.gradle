@@ -3,19 +3,13 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
         //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
     }
 }
 
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.library'
-
-retrolambda {
-    jdk System.getenv("JAVA8_HOME")
-    oldJdk System.getenv("JAVA7_HOME")
-    javaVersion JavaVersion.VERSION_1_7
-}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -45,6 +39,8 @@ dependencies {
     compile project(':domain')
     compile 'com.orhanobut:hawk:1.17'
     compile rootProject.ext.retrofit
-    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.retrofit:converter-moshi:2.0.0-beta2'
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
+    //compile 'com.squareup.okhttp:okhttp:2.3.0'
     //compile 'com.android.support:appcompat-v7:22.2.1'
 }

@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
 
@@ -14,12 +14,6 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 apply plugin: 'com.jakewharton.hugo'
-
-retrolambda {
-    jdk System.getenv("JAVA8_HOME")
-    oldJdk System.getenv("JAVA7_HOME")
-    javaVersion JavaVersion.VERSION_1_7
-}
 
 repositories {
     maven {url "https://clojars.org/repo/"}
@@ -61,7 +55,7 @@ dependencies {
     compile  rootProject.ext.supportV4
     compile rootProject.ext.recyclerView
     compile rootProject.ext.palette
-    compile 'com.android.support:percent:22.2.0'
+    compile 'com.android.support:percent:23.1.0'
     compile 'com.jakewharton:butterknife:7.0.1'
 
     apt rootProject.ext.icepickProcessor
