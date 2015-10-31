@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.ListPreloader;
 import com.bumptech.glide.ListPreloader.PreloadModelProvider;
@@ -27,64 +26,64 @@ import com.bumptech.glide.RequestManager;
  *
  * @param <T> The type of the model being displayed in the {@link RecyclerView}.
  */
-@SuppressWarnings("unused")
-public final class RecyclerViewPreloader<T> extends RecyclerView.OnScrollListener {
+@SuppressWarnings("unused") public final class RecyclerViewPreloader<T>
+    extends RecyclerView.OnScrollListener {
 
-    private final RecyclerToListViewScrollListener recyclerScrollListener;
+  private final RecyclerToListViewScrollListener recyclerScrollListener;
 
-    /**
-     * Helper constructor that accepts an {@link Activity}.
-     */
-    public RecyclerViewPreloader(Activity activity,
-                                 PreloadModelProvider<T> preloadModelProvider,
-                                 PreloadSizeProvider<T> preloadDimensionProvider, int maxPreload) {
-        this(Glide.with(activity), preloadModelProvider, preloadDimensionProvider, maxPreload);
-    }
+  /**
+   * Helper constructor that accepts an {@link Activity}.
+   */
+  public RecyclerViewPreloader(Activity activity, PreloadModelProvider<T> preloadModelProvider,
+      PreloadSizeProvider<T> preloadDimensionProvider, int maxPreload) {
+    this(Glide.with(activity), preloadModelProvider, preloadDimensionProvider, maxPreload);
+  }
 
-    /**
-     * Helper constructor that accepts an {@link FragmentActivity}.
-     */
-    public RecyclerViewPreloader(FragmentActivity fragmentActivity,
-                                 PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
-                                 int maxPreload) {
-        this(Glide.with(fragmentActivity), preloadModelProvider, preloadDimensionProvider, maxPreload);
-    }
+  /**
+   * Helper constructor that accepts an {@link FragmentActivity}.
+   */
+  public RecyclerViewPreloader(FragmentActivity fragmentActivity,
+      PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
+      int maxPreload) {
+    this(Glide.with(fragmentActivity), preloadModelProvider, preloadDimensionProvider, maxPreload);
+  }
 
-    /**
-     * Helper constructor that accepts an {@link Fragment}.
-     */
-    public RecyclerViewPreloader(Fragment fragment,
-                                 PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
-                                 int maxPreload) {
-        this(Glide.with(fragment), preloadModelProvider, preloadDimensionProvider, maxPreload);
-    }
+  /**
+   * Helper constructor that accepts an {@link Fragment}.
+   */
+  public RecyclerViewPreloader(Fragment fragment, PreloadModelProvider<T> preloadModelProvider,
+      PreloadSizeProvider<T> preloadDimensionProvider, int maxPreload) {
+    this(Glide.with(fragment), preloadModelProvider, preloadDimensionProvider, maxPreload);
+  }
 
-    /**
-     * Helper constructor that accepts an {@link android.support.v4.app.Fragment}.
-     */
-    public RecyclerViewPreloader(android.support.v4.app.Fragment fragment,
-                                 PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
-                                 int maxPreload) {
-        this(Glide.with(fragment), preloadModelProvider, preloadDimensionProvider, maxPreload);
-    }
-    /**
-     * Constructor that accepts interfaces for providing the dimensions of images to preload, the list
-     * of models to preload for a given position, and the request to use to load images.
-     *
-     * @param preloadModelProvider     Provides models to load and requests capable of loading them.
-     * @param preloadDimensionProvider Provides the dimensions of images to load.
-     * @param maxPreload               Maximum number of items to preload.
-     */
-    public RecyclerViewPreloader(RequestManager requestManager,
-                                 PreloadModelProvider<T> preloadModelProvider,
-                                 PreloadSizeProvider<T> preloadDimensionProvider, int maxPreload) {
+  /**
+   * Helper constructor that accepts an {@link android.support.v4.app.Fragment}.
+   */
+  public RecyclerViewPreloader(android.support.v4.app.Fragment fragment,
+      PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
+      int maxPreload) {
+    this(Glide.with(fragment), preloadModelProvider, preloadDimensionProvider, maxPreload);
+  }
 
-        ListPreloader listPreloader = new ListPreloader<>(preloadModelProvider, preloadDimensionProvider, maxPreload);
-        recyclerScrollListener = new RecyclerToListViewScrollListener(listPreloader);
-    }
+  /**
+   * Constructor that accepts interfaces for providing the dimensions of images to preload, the
+   * list
+   * of models to preload for a given position, and the request to use to load images.
+   *
+   * @param preloadModelProvider Provides models to load and requests capable of loading them.
+   * @param preloadDimensionProvider Provides the dimensions of images to load.
+   * @param maxPreload Maximum number of items to preload.
+   */
+  public RecyclerViewPreloader(RequestManager requestManager,
+      PreloadModelProvider<T> preloadModelProvider, PreloadSizeProvider<T> preloadDimensionProvider,
+      int maxPreload) {
 
-    @Override
-    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-        recyclerScrollListener.onScrolled(recyclerView, dx, dy);
-    }
+    ListPreloader listPreloader =
+        new ListPreloader<>(preloadModelProvider, preloadDimensionProvider, maxPreload);
+    recyclerScrollListener = new RecyclerToListViewScrollListener(listPreloader);
+  }
+
+  @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    recyclerScrollListener.onScrolled(recyclerView, dx, dy);
+  }
 }

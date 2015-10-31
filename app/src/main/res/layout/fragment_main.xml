@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/rootView"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:fitsSystemWindows="true"
-             android:orientation="vertical">
-    <master.flame.danmaku.ui.widget.DanmakuSurfaceView
-        android:id="@+id/sv_danmaku"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+  <master.flame.danmaku.ui.widget.DanmakuSurfaceView
+      android:id="@+id/sv_danmaku"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+  <include layout="@layout/view_loading"/>
+
+  <include layout="@layout/view_error"/>
+
+  <android.support.v4.widget.SwipeRefreshLayout
+      android:id="@+id/contentView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <me.pkliang.gankmaku.widget.EmptyRecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:triggerOffset="0.1"/>
 
-    <include layout="@layout/view_loading"/>
+  </android.support.v4.widget.SwipeRefreshLayout>
 
-    <include layout="@layout/view_error"/>
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/contentView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <me.pkliang.gankmaku.widget.EmptyRecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:triggerOffset="0.1"/>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
-
-    <include layout="@layout/view_empty"/>
+  <include layout="@layout/view_empty"/>
 </FrameLayout>

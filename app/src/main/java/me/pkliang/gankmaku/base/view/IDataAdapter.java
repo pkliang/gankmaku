@@ -5,10 +5,9 @@ package me.pkliang.gankmaku.base.view;
  */
 public interface IDataAdapter<DATA> {
 
-    void notifyDataChanged(DATA data, boolean isRefresh);
+  void notifyDataChanged(DATA data, boolean isRefresh);
 
-    DATA getData();
+  DATA getData();
 
-    boolean isEmpty();
-
+  boolean isEmpty();
 }

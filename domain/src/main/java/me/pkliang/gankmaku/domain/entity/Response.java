@@ -7,23 +7,23 @@ import java.util.List;
  */
 public class Response {
 
-    private List<Entry> results;
-    private boolean error;
+  private List<Entry> results;
+  private boolean error;
 
-    public Response setResults(List<Entry> results) {
-        this.results = results;
-        return this;
-    }
+  public Response setResults(List<Entry> results) {
+    this.results = results;
+    return this;
+  }
 
-    public void setError(boolean error) {
-        this.error = error;
-    }
+  public void setError(boolean error) {
+    this.error = error;
+  }
 
-    public List<Entry> getResults() {
-        return results;
-    }
+  public List<Entry> getResults() {
+    return results;
+  }
 
-    public boolean isError() {
-        return error;
-    }
+  public boolean isError() {
+    return error;
+  }
 }

@@ -8,9 +8,9 @@ import rx.Observable;
  */
 public interface Repository {
 
-    Observable<Response> getFuli(int pageSize, int page);
+  Observable<Response> getFuli(int pageSize, int page);
 
-    Observable<Response> getAndroid(int pageSize, int page);
+  Observable<Response> getAndroid(int pageSize, int page);
 
-    Observable<Response> getIOS(int pageSize, int page);
+  Observable<Response> getIOS(int pageSize, int page);
 }

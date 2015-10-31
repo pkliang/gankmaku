@@ -7,9 +7,9 @@ import me.pkliang.gankmaku.base.PerFragment;
 /**
  * Created by Omistaja on 8/10/2015.
  */
-@PerFragment
-@Component(dependencies = AppComponent.class, modules = FuliModule.class)
+@PerFragment @Component(dependencies = AppComponent.class, modules = FuliModule.class)
 public interface FuliComponent {
-    void inject(FuliFragment fragment);
-    FuliPresenter presenter();
+  void inject(FuliFragment fragment);
+
+  FuliPresenter presenter();
 }

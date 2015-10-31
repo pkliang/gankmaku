@@ -7,9 +7,9 @@ import me.pkliang.gankmaku.base.PerFragment;
 /**
  * Created by Administrator on 2015/8/11.
  */
-@PerFragment
-@Component(dependencies = AppComponent.class, modules = IOSModule.class)
+@PerFragment @Component(dependencies = AppComponent.class, modules = IOSModule.class)
 public interface GetIOSComponent {
-    void inject(IOSFragment fragment);
-    IOSPresenter presenter();
+  void inject(IOSFragment fragment);
+
+  GanhuoPresenter presenter();
 }
